@@ -1,10 +1,30 @@
 const  sqlParams = require('./sql_config');
 const mysql = require('mysql2');
 
-const db = mysql.createConnection(sqlParams.sqlConParams);
 
+const tempdb = mysql.createConnection(sqlParams);
 
-db.query('Select * from employees', (err,results) =>
+function createDbConnection(sqlParams)
 {
-    console.table(results);
-});
+    const tempdb = mysql.createConnection(sqlParams);
+
+    tempdb.end();
+}
+
+tempdb.end();
+
+
+const Database = require('./db_functions/sqlFunctions');
+
+const db = new Database(sqlParams);
+
+const tables = {
+    employees: "employees",
+    departments: "departments",
+    roles: "roles"
+}
+
+
+db.selectAllQuery(tables.departments);
+db.selectAllQuery(tables.employees);
+db.selectAllQuery(tables.roles);
