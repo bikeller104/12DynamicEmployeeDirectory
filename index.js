@@ -1,10 +1,30 @@
 const  sqlParams = require('./sql_config');
 const mysql = require('mysql2');
 
-const db = mysql.createConnection(sqlParams.sqlConParams);
+
+const Database = require('./db_functions/sqlFunctions');
+
+const db = new Database(sqlParams.sqlConParams);
+
+const tables = {
+    employees: "employees",
+    departments: "departments",
+    roles: "roles"
+}
+
+console.log("Select all for departments");
+db.selectAllQuery(tables.departments);
+console.log("Select all for employees");
+db.selectAllQuery(tables.employees);
+console.log("Select all for roles");
+db.selectAllQuery(tables.roles);
+
+console.log("Select all for departments");
+db.getDepartments();
+console.log("Select all for roles");
+db.getRoles();
+console.log("Select all join all tables");
+db.getEmployees();
 
 
-db.query('Select * from employees', (err,results) =>
-{
-    console.table(results);
-});
+db.close();
