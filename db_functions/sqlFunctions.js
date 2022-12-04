@@ -53,15 +53,11 @@ class Database {
             console.table(results);
         })
     }
-
+    
+    //view all employees - this shows a table of employees with their roles and managers
     getEmployees()
     {
-        const query = `Select e.first_name, e.last_Name, r.title, r.salary, d.name as 'department' 
-        from  employees e 
-        Join roles r 
-        ON e.role_id = r.id 
-        join departments d 
-        on r.department_id = d.id;`;
+        const query = `Select e.first_name, e.last_Name, r.title, r.salary, d.name as 'department' , CONCAT( e2.first_name, ' ', e2.last_name) as 'manager' from  employees e  Join roles r  ON e.role_id = r.id   join departments d  on r.department_id = d.id Left Join employees e2  On e.manager_id = e2.id`;
 
         this.db.query(query, (err, results) => {
             if(err) 
@@ -74,7 +70,6 @@ class Database {
        
     }
 
-    //view all employees - this shows a table of employees with their roles and managers
 
     //add a department- this adds an entry to the department table
 
