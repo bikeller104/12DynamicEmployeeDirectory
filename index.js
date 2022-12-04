@@ -12,6 +12,17 @@ const tables = {
     roles: "roles"
 }
 
+const startOptions = [
+    "view all departmests",
+    "view all roles",
+    "view all employees",
+    "add a department",
+    "add a role",
+    "add an employee", 
+    "update an employee role"
+
+]
+
 console.log("Select all for departments");
 db.selectAllQuery(tables.departments);
 console.log("Select all for employees");

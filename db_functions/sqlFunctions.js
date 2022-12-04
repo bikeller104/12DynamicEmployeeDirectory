@@ -22,34 +22,19 @@ class Database {
                 console.error(err);
                 return;
             }
-            // console.table(result);
-            // console.log(typeof(result));
-            // console.log(result);
-            // const departmentList = [];
-            // result.forEach(item => departmentList.push(item.name));
-            // console.log(departmentList);
-
-            //dont need to map this stuff, just a good ol' console.table(results) will work
-            //console.log(results.map(x=> x.name));
             console.table(results);
         })
     }
     //view all roles - this shows a list of roles
     getRoles()
     {
-        this.db.query(`select title, salary from roles`, (err, results) => {
+        const query = `select r.id, r.title, r.salary, d.name as 'department' from roles r Right Join departments d on r.department_id = d.id;`;
+        this.db.query(query, (err, results) => {
             if(err) 
             {
                 console.error(err);
                 return;
             }
-            // console.table(result);
-            // console.log(typeof(result));
-            // console.log(result);
-            // const departmentList = [];
-            // result.forEach(item => departmentList.push(item.name));
-            // console.log(departmentList);
-            //console.log(results.map(x=> x = {  title: x.title, salary: x.salary} ));
             console.table(results);
         })
     }
