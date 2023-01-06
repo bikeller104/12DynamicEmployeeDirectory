@@ -77,12 +77,11 @@ function askQuestions()
     inquirer.prompt(startQuestions)
     .then((responses) => 
     {
-        console.log(responses);
         switch(responses.baseResponse)
         {
             case "view all departments":
                 db.getDepartments(askQuestions);
-                console.log("got departments");
+                
                 break;
             case "view all roles":
                 db.getRoles(askQuestions);
