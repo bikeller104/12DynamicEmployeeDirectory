@@ -10,4 +10,8 @@
 This project includes a database of employees, roles, and departments and stores the employees roles, salaries, managers, and other relevant information. A user can use this application to display data from this database as well as updated/add more information to it.
 
 ## visuals
-![video showcase](./employeeDirectoryShowcase.webm.mov)
+
+
+<video width="320" height="240" controls>
+  <source src="./employeeDirectoryShowcase.webm" type="video/webm">
+</video>
