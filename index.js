@@ -95,7 +95,7 @@ function askQuestions()
                 inquirer.prompt(getDepartmentInput)
                 .then((response) =>
                 {
-                    db.addDepartment(response.department);
+                    db.addDepartment(response.department, askQuestions);
                 });
                 break;
             case "add a role":
