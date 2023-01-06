@@ -11,7 +11,4 @@ This project includes a database of employees, roles, and departments and stores
 
 ## visuals
 
-
-<video width="320" height="240" controls>
-  <source src="./employeeDirectoryShowcase.webm" type="video/webm">
-</video>
+[employeeDirectoryShowcase.webm](https://user-images.githubusercontent.com/110364905/211092181-b29296b8-809a-4713-8498-c0c3f6c05cec.webm)
